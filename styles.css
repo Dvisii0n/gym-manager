@@ -1,9 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
 
 :root {
-    --nav-color: rgb(255 226 0);
+    --nav-color: rgb(253, 234, 87);
     --bg-color: rgb(255, 255, 255);
     --menu-color: rgb(255, 255, 255);
+    --default-shadow: rgba(149, 157, 165, 0.349) 0px 8px 24px;
 }
 body {
     font-family: "Roboto", sans-serif;
@@ -13,8 +15,11 @@ body {
 }
 
 main {
-    display: flex;
-    height: 100vh;
+    display: grid;
+    grid-auto-columns: 1fr 7fr;
+}
+h1 {
+    font-family: "Play", sans-serif;
 }
 
 nav {
@@ -32,11 +37,17 @@ nav {
 
 .section-menu {
     background-color: var(--menu-color);
+    grid-column: 1 /2;
     display: flex;
     flex-direction: column;
     padding: 20px 20px 20px 10px;
     gap: 8px;
-    box-shadow: rgba(149, 157, 165, 0.349) 0px 8px 24px;
+    height: 100vh;
+    box-shadow: var(--default-shadow);
+}
+
+.content {
+    grid-column: 2/ 3;
 }
 
 @media (max-width: 450px) {
@@ -45,7 +56,8 @@ nav {
     }
 }
 
-.menu-child {
+.menu-child,
+.crud-button {
     display: flex;
     padding: 5px 15px;
     align-items: center;
@@ -59,6 +71,7 @@ nav {
 }
 
 .menu-child:hover,
+.crud-button:hover,
 .active {
     cursor: pointer;
     background-color: var(--nav-color);
@@ -66,10 +79,6 @@ nav {
         rgba(240, 179, 46, 0.3) 10px 10px, rgba(240, 140, 46, 0.2) 15px 15px;
 
     transform: translateY(-2px);
-}
-
-.content {
-    width: 100vw;
 }
 
 .stats {
@@ -93,4 +102,41 @@ nav {
 .stat-container:hover {
     transform: scale(1.05);
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+caption {
+    font-size: 21px;
+    padding: 20px;
+}
+
+table,
+th,
+td {
+    padding: 10px;
+    border: 1px solid rgb(207, 207, 207);
+    border-collapse: collapse;
+}
+
+table {
+    margin: 0;
+    justify-self: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.crud-buttons-container {
+    display: flex;
+    gap: 10px;
+    margin: 20px;
+}
+
+.crud-button {
+    border-radius: 0px;
+    border: 1px solid rgba(255, 255, 255, 0);
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
 }

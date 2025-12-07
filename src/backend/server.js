@@ -5,6 +5,7 @@ import { getRowsRouter } from "./routes/getRowsRoutes.js";
 import { insertRouter } from "./routes/insertRoutes.js";
 import { updateRouter } from "./routes/updateRoutes.js";
 import { deleteRouter } from "./routes/deleteRoutes.js";
+import { statsRouter } from "./routes/statsRoutes.js";
 
 const port = 3000;
 const app = express();
@@ -19,6 +20,7 @@ app.use("/getRows", getRowsRouter);
 app.use("/insert", insertRouter);
 app.use("/update", updateRouter);
 app.use("/delete", deleteRouter);
+app.use("/stats", statsRouter);
 
 pool.connect();
 

@@ -4,6 +4,16 @@ export function clearContainer(container) {
     }
 }
 
+export async function fetchStats(endpoint) {
+    try {
+        const response = await fetch(`http://localhost:3000/stats/${endpoint}`);
+        const data = await response.json();
+        return data[0][0];
+    } catch (error) {
+        throw error;
+    }
+}
+
 export async function fetchTableRows(tableName) {
     try {
         const response = await fetch(

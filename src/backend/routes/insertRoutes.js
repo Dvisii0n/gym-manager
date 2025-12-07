@@ -10,7 +10,7 @@ router.post("/cliente", async (req, res) => {
         body.apellido,
         body.telefono,
         body.email,
-        body.idMembresia
+        body.id_membresia
     );
     res.send(result);
 });
@@ -18,9 +18,9 @@ router.post("/cliente", async (req, res) => {
 router.post("/membresia", async (req, res) => {
     const body = req.body;
     const result = await insertController.insertMembresia(
-        body.nombre,
+        body.tipo,
         body.precio,
-        body.dias
+        body.duracion_dias
     );
     res.send(result);
 });
@@ -28,10 +28,10 @@ router.post("/membresia", async (req, res) => {
 router.post("/pago", async (req, res) => {
     const body = req.body;
     const result = await insertController.insertPago(
-        body.idCliente,
+        body.id_cliente,
         body.monto,
-        body.fechaVencimiento,
-        body.metodoPago
+        body.fecha_vencimiento,
+        body.metodo_pago
     );
     res.send(result);
 });

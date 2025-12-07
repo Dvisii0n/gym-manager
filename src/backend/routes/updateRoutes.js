@@ -11,9 +11,9 @@ router.put("/cliente/:id", async (req, res) => {
         body.apellido,
         body.telefono,
         body.email,
-        body.fechaRegistro,
+        body.fecha_registro,
         body.estatus,
-        body.idMembresia
+        body.id_membresia
     );
     res.send(result);
 });
@@ -24,7 +24,7 @@ router.put("/membresia/:id", async (req, res) => {
         req.params.id,
         body.tipo,
         body.precio,
-        body.duracionDias
+        body.duracion_dias
     );
 
     res.send(result);
@@ -34,11 +34,11 @@ router.put("/pago/:id", async (req, res) => {
     const body = req.body;
     const result = await updateController.updatePago(
         req.params.id,
-        body.idCliente,
-        body.fechaPago,
+        body.id_cliente,
+        body.fecha_pago,
         body.monto,
-        body.fechaVencimiento,
-        body.metodoPago
+        body.fecha_vencimiento,
+        body.metodo_pago
     );
 
     res.send(result);
@@ -52,7 +52,7 @@ router.put("/empleado/:id", async (req, res) => {
         body.apellido,
         body.puesto,
         body.salario,
-        body.fechaContratacion,
+        body.fecha_contratacion,
         body.estatus
     );
 
